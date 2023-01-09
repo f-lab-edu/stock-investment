@@ -1,19 +1,13 @@
 # stock-investment
 
----
-
 주식 정보 조회 모의 투자 서버
 
 ## 프로젝트 요약
-
----
 
 - Open API 서비스를 통해 주식을 정보를 실시간으로 수집합니다.
 - 수집된 데이터를 기반으로 사용자가 주식 정보를 조회 혹은 모의투자를 수행하는 서비스입니다.
 
 ## 프로젝트 목표
-
----
 
 - 도메인에 맞게 서버를 분리하고 대용량 트래픽 처리와 객체지향적 설계를 고려한 프로젝트 구조를 구성합니다.
 - REST API 요청응답 기능 외 실시간 알람을 구현합니다.
@@ -21,14 +15,10 @@
 
 ## 목표가 아닌 것
 
----
-
 - 프론트 화면 구현
 - 결제 기능
 
 ## 프로젝트 구성
-
----
 
 ### 도메인 모델
 
@@ -54,8 +44,6 @@
 ![](/Users/jiseok/Library/Application%20Support/marktext/images/2023-01-09-23-23-10-image.png)
 
 ## Front
-
----
 
 [](https://ovenapp.io/project/kT0WZTkgB2frh7kMPRAkndFAbl7MPNda#JUEJj)
 
