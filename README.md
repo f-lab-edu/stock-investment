@@ -37,14 +37,14 @@
 
 프로젝트의 전반적인 이해를 위해 이벤트 스토밍 과정을 통해 도출된 바운디드 컨텍스트 관계를 표현합니다.
 
-![](/Users/jiseok/Library/Application%20Support/marktext/images/2023-01-09-23-22-42-image.png)
+<img width="1204" alt="image" src="https://user-images.githubusercontent.com/53139084/211349382-55006bf6-1d7c-4473-9459-ff1eb381ffeb.png">
 
 ## 서비스 구성도
 
-![](/Users/jiseok/Library/Application%20Support/marktext/images/2023-01-09-23-23-10-image.png)
+<img width="951" alt="image" src="https://user-images.githubusercontent.com/53139084/211349585-def77658-9d7b-4d31-82d7-f75727f238b6.png">
 
 ## Front
 
-[](https://ovenapp.io/project/kT0WZTkgB2frh7kMPRAkndFAbl7MPNda#JUEJj)
+[화면구성도](https://ovenapp.io/project/kT0WZTkgB2frh7kMPRAkndFAbl7MPNda#JUEJj)
 
-# 
+
