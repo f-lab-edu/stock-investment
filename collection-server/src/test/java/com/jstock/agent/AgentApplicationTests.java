@@ -1,10 +1,10 @@
-package com.stock.collection;
+package com.jstock.agent;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CollectionApplicationTests {
+class AgentApplicationTests {
 
     @Test
     void contextLoads() {

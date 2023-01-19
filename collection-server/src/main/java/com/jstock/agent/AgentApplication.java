@@ -1,13 +1,13 @@
-package com.stock.collection;
+package com.jstock.agent;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CollectionApplication {
+public class AgentApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CollectionApplication.class, args);
+        SpringApplication.run(AgentApplication.class, args);
     }
 
 }
