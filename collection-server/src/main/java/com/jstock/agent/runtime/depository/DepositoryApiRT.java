@@ -17,7 +17,7 @@ import org.springframework.web.client.RestTemplate;
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.net.URLDecoder;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @Slf4j
@@ -27,24 +27,22 @@ public class DepositoryApiRT {
 
     private final RestTemplate restTemplate;
 
-    @Value("serviceKey")
+    @Value("${serviceKey}")
     private String serviceKey;
 
     @Scheduled(fixedRateString = "5", initialDelay = 3000)
-    public void stockInfoRequest() throws URISyntaxException, UnsupportedEncodingException {
+    public void stockInfoRequest() {
         restTemplate.getInterceptors().add((request, body, execution) -> {
             ClientHttpResponse response = execution.execute(request, body);
             response.getHeaders().setContentType(MediaType.APPLICATION_JSON);
             return response;
         });
-        final HttpHeaders headers = new HttpHeaders();
-        final HttpEntity<?> entity = new HttpEntity<>(headers);
-        restTemplate.getMessageConverters().add(0, new StringHttpMessageConverter(Charset.forName("UTF-8")));
+        restTemplate.getMessageConverters().add(0, new StringHttpMessageConverter(StandardCharsets.UTF_8));
 
-        String url = URLDecoder.decode("/getStockPriceInfo?serviceKey=" + serviceKey + "&resultType=json", "UTF-8");
+        String url = URLDecoder.decode("/getStockPriceInfo?serviceKey=" + serviceKey + "&resultType=json", StandardCharsets.UTF_8);
         StockResponse exchange = restTemplate.getForObject(url, StockResponse.class);
         List<Items.Item> items = exchange.getResponse().getBody().getItems().getItem();
         log.info("DispositoryApiRT running");
-        log.info(exchange.toString());
+        log.info(items.toString());
     }
 }

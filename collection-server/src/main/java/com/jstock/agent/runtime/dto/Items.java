@@ -44,5 +44,27 @@ public class Items {
         private double lstgStCnt;
         // 종가 * 상장주식수
         private double mrktTotAmt;
+
+        @Override
+        public String toString() {
+            final StringBuilder sb = new StringBuilder("Item{");
+            sb.append("basDt='").append(basDt).append('\'');
+            sb.append(", srtnCd='").append(srtnCd).append('\'');
+            sb.append(", isinCd='").append(isinCd).append('\'');
+            sb.append(", itmsNm='").append(itmsNm).append('\'');
+            sb.append(", mrktCtg='").append(mrktCtg).append('\'');
+            sb.append(", clpr=").append(clpr);
+            sb.append(", vs=").append(vs);
+            sb.append(", fltRt=").append(fltRt);
+            sb.append(", mkp=").append(mkp);
+            sb.append(", hipr=").append(hipr);
+            sb.append(", lopr=").append(lopr);
+            sb.append(", trqu=").append(trqu);
+            sb.append(", trPrc=").append(trPrc);
+            sb.append(", lstgStCnt=").append(lstgStCnt);
+            sb.append(", mrktTotAmt=").append(mrktTotAmt);
+            sb.append('}');
+            return sb.toString();
+        }
     }
 }
