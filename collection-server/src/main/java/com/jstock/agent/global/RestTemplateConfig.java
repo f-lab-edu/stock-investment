@@ -1,6 +1,7 @@
 package com.jstock.agent.global;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,9 +18,12 @@ public class RestTemplateConfig {
 
     private final RestTemplateBuilder restTemplateBuilder;
 
-    @Bean("openapi")
+    @Value("${serviceUri}")
+    private String serviceUri;
+
+    @Bean
     public RestTemplate openapiRestTemplate() throws URISyntaxException {
-        URI uri = new URI("http://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService");
+        URI uri = new URI(serviceUri);
         return restTemplateBuilder.rootUri(uri.toString())
                 .requestFactory(() -> new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()))
                 .build();
