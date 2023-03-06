@@ -4,6 +4,7 @@ import com.jstock.agent.runtime.dto.Items;
 import com.jstock.agent.runtime.dto.StockResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -23,7 +24,7 @@ import java.util.List;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class DepositoryApiRT {
+public class DepositoryApiRT implements InitializingBean {
 
     private final RestTemplate restTemplate;
 
@@ -31,18 +32,22 @@ public class DepositoryApiRT {
     private String serviceKey;
 
     @Scheduled(fixedRateString = "5", initialDelay = 3000)
-    public void stockInfoRequest() {
+    public void stockInfoRequest() throws Exception {
         restTemplate.getInterceptors().add((request, body, execution) -> {
             ClientHttpResponse response = execution.execute(request, body);
             response.getHeaders().setContentType(MediaType.APPLICATION_JSON);
             return response;
         });
-        restTemplate.getMessageConverters().add(0, new StringHttpMessageConverter(StandardCharsets.UTF_8));
 
         String url = URLDecoder.decode("/getStockPriceInfo?serviceKey=" + serviceKey + "&resultType=json", StandardCharsets.UTF_8);
         StockResponse exchange = restTemplate.getForObject(url, StockResponse.class);
         List<Items.Item> items = exchange.getResponse().getBody().getItems().getItem();
+        log.info(items.toString()); // TODO 임시 코드
+        afterPropertiesSet();
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
         log.info("DispositoryApiRT running");
-        log.info(items.toString());
     }
 }
