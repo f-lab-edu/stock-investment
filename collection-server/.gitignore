@@ -1,3 +1,6 @@
+# Config file
+*.yml
+
 ### Java ###
 # Compiled class file
 *.class
